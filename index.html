@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Overview</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-md-block bg-dark text-white sidebar">
+                <ul class="nav flex-column p-3">
+                    <li class="nav-item active"><a href="#" class="nav-link text-white">Overview</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Tickets</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Ideas</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Contacts</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Agents</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Settings</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Main Content -->
+            <main class="col-md-10 ml-auto p-4">
+                <h1 class="mb-4">Overview</h1>
+                
+                <!-- Statistics Cards -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3"><div class="card p-4 text-center"><h3>Unresolved</h3><p>60</p></div></div>
+                    <div class="col-md-3"><div class="card p-4 text-center"><h3>Overdue</h3><p class="overdue">16</p></div></div>
+                    <div class="col-md-3"><div class="card p-4 text-center"><h3>Open</h3><p>43</p></div></div>
+                    <div class="col-md-3"><div class="card p-4 text-center"><h3>On Hold</h3><p>64</p></div></div>
+                </div>
+
+                <!-- Chart & Side Stats -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2>Today's Trends</h2>
+                        <div class="chart-section mb-4">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Statistics</h2>
+                        <div class="list-group">
+                            <div class="list-group-item">Resolved <span class="float-end">449</span></div>
+                            <div class="list-group-item">Received <span class="float-end">426</span></div>
+                            <div class="list-group-item">Average First Response Time <span class="float-end">33m</span></div>
+                            <div class="list-group-item">Average Response Time <span class="float-end">3h 8m</span></div>
+                            <div class="list-group-item">Resolution Within SLA <span class="float-end">94%</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Section -->
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card p-4">
+                            <h6>Search Tickets</h6>
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <button class="btn btn-primary" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="pendingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Pending Tickets Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Details about pending tickets...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Section (Unresolved Tickets and Tasks) -->
+<div class="row mt-4">
+    <!-- Unresolved Tickets Column -->
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h4>Unresolved Tickets</h4>
+            <ul class="list-group">
+                <li class="list-group-item">Waiting on Feature Request <span class="float-end">4238</span></li>
+                <li class="list-group-item">Awaiting Customer Response <span class="float-end">1005</span></li>
+                <li class="list-group-item">Awaiting Developer Fix <span class="float-end">914</span></li>
+                <li class="list-group-item">Pending <span class="float-end">281</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Tasks Column -->
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h4>Tasks</h4>
+            <form>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Create new task...">
+                    <button class="btn btn-primary" type="submit">Add</button>
+                </div>
+            </form>
+            <ul class="list-group mt-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Finish ticket update <span class="badge bg-warning text-dark">Urgent</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Create new ticket example <span class="badge bg-info text-dark">New</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Update ticket report <span class="badge bg-secondary">Default</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
